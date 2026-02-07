@@ -1,0 +1,2 @@
+BRG006,Gorengan,5
+BRG001,Roti,20,1,1
