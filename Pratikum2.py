@@ -61,7 +61,7 @@ def tampilkan_data(data_dict):
       print(f'{nim : <10} | {nama:<12} | {nilai:>5}')
 
 # memanggil fungsi untuk menampilkan data
-#tampilkan_data(buka_data)
+#tampilkan_data(buka_data) KEREN
 
 #=====================================================
 # Pratikum 2 : 
