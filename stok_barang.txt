@@ -1,2 +1,6 @@
 BRG006,Gorengan,5
-BRG001,Roti,20,1,1
+BRG005,Susu,25
+BRG004,EsKrim,5
+BRG003,TehBotol,10
+BRG002,AirMineral,15
+BRG001,Roti,20

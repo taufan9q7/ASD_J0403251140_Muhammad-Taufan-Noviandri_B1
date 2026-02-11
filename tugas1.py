@@ -7,12 +7,13 @@
 # Kelas : TPL - B1
 # ==========================================================
 
-# -------------------------------
-# Konstanta nama file
-# -------------------------------
+# ===============================
+# Program Manajemen Stok Kantin
+# ===============================
 
-# Nama file untuk menyimpan data stok
-nama_file = "stok_barang.txt"
+# Nama file data stok
+NAMA_FILE = "stok_barang.txt"
+
 
 # -------------------------------
 # Fungsi: Membaca data dari file
@@ -26,26 +27,40 @@ def baca_stok(nama_file):
     stok_dict = {}
 
     try:
-        # Membuka file dengan mode baca
+        # Membuka file dalam mode baca
         with open(nama_file, "r", encoding="utf-8") as f:
             for baris in f:
-                # Menghilangkan karakter enter
+                # Menghilangkan spasi dan enter
                 baris = baris.strip()
 
-                # Melewati baris kosong
+                # Jika baris kosong, dilewati
                 if baris == "":
                     continue
 
                 # Memisahkan data berdasarkan koma
-                kode,nama,stok = baris.split(",")
+                data = baris.split(",")
 
-                # Menyimpan ke dictionary
+                # Validasi jumlah kolom harus 3
+                if len(data) != 3:
+                    continue  # Lewati baris yang formatnya salah
+
+                kode = data[0]
+                nama = data[1]
+
+                # Mengubah stok menjadi integer
+                try:
+                    stok = int(data[2])
+                except ValueError:
+                    continue  # Jika stok bukan angka, lewati
+
+                # Simpan ke dictionary
                 stok_dict[kode] = {
                     "nama": nama,
-                    "stok": int(stok)
+                    "stok": stok
                 }
+
     except FileNotFoundError:
-        # Jika file tidak ditemukan, program tetap jalan dengan stok kosong
+        # Jika file tidak ditemukan
         print("File stok tidak ditemukan. Stok dimulai dari kosong.")
 
     return stok_dict
@@ -86,20 +101,19 @@ def tampilkan_semua(stok_dict):
 
 
 # -------------------------------
-# Fungsi: Cari barang berdasarkan kode
+# Fungsi: Cari barang
 # -------------------------------
 def cari_barang(stok_dict):
     """
-    Mencari barang berdasarkan kode barang.
+    Mencari barang berdasarkan kode.
     """
     kode = input("Masukkan kode barang: ").strip()
 
     if kode in stok_dict:
-        data = stok_dict[kode]
         print("Barang ditemukan:")
         print("Kode :", kode)
-        print("Nama :", data["nama"])
-        print("Stok :", data["stok"])
+        print("Nama :", stok_dict[kode]["nama"])
+        print("Stok :", stok_dict[kode]["stok"])
     else:
         print("Barang tidak ditemukan.")
 
@@ -113,7 +127,6 @@ def tambah_barang(stok_dict):
     """
     kode = input("Masukkan kode barang baru: ").strip()
 
-    # Validasi kode tidak boleh sama
     if kode in stok_dict:
         print("Kode sudah digunakan.")
         return
@@ -166,7 +179,7 @@ def update_stok(stok_dict):
     elif pilihan == "2":
         stok_dict[kode]["stok"] -= jumlah
 
-        # Jika stok menjadi negatif, otomatis jadi 0
+        # Jika stok negatif, otomatis jadi 0
         if stok_dict[kode]["stok"] < 0:
             stok_dict[kode]["stok"] = 0
 
@@ -180,8 +193,8 @@ def update_stok(stok_dict):
 # Program Utama
 # -------------------------------
 def main():
-    # Membaca data dari file saat program dimulai
-    stok_barang = baca_stok(nama_file)
+    # Membaca data saat program dijalankan
+    stok_barang = baca_stok(NAMA_FILE)
 
     while True:
         print("\n=== MENU STOK KANTIN ===")
@@ -207,12 +220,12 @@ def main():
             update_stok(stok_barang)
 
         elif pilihan == "5":
-            simpan_stok(nama_file, stok_barang)
+            simpan_stok(NAMA_FILE, stok_barang)
             print("Data berhasil disimpan.")
 
         elif pilihan == "0":
             # Simpan otomatis saat keluar
-            simpan_stok(nama_file, stok_barang)
+            simpan_stok(NAMA_FILE, stok_barang)
             print("Program selesai.")
             break
 
