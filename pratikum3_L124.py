@@ -67,32 +67,23 @@ class LinkedList:
         temp = None
 
 ll = LinkedList()
-
 ll.insert_at_end(3)
 ll.insert_at_end(5)
 ll.insert_at_end(13)
 ll.insert_at_end(2)
-
 print("Linked List sebelum dihapus:")
 ll.display()
-
 ll.delete_node(13)
-
 print("Linked List setelah menghapus 13:")
 ll.display()
 
-# ==========================
 # Membuat Node
-# ==========================
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
 
-
-# ==========================
 # Circular Singly Linked List
-# ==========================
 class CircularSinglyLinkedList:
     def __init__(self):
         self.head = None
@@ -137,11 +128,7 @@ class CircularSinglyLinkedList:
 
         print(f"Elemen {key} tidak ditemukan dalam Circular Linked List.")
 
-
-# ==========================
 # Program Utama
-# ==========================
-
 cll = CircularSinglyLinkedList()
 
 # Input elemen
@@ -158,19 +145,13 @@ cari = int(input("Masukkan elemen yang ingin dicari: "))
 # Panggil fungsi pencarian
 cll.search(cari)
 
-
-# ==========================
 # Membuat Node
-# ==========================
 class Node:
     def __init__(self, data):
         self.data = data
         self.next = None
 
-
-# ==========================
 # Single Linked List
-# ==========================
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -220,11 +201,7 @@ class LinkedList:
 
         return merged_list
 
-
-# ==========================
 # Program Utama
-# ==========================
-
 ll1 = LinkedList()
 ll2 = LinkedList()
 
