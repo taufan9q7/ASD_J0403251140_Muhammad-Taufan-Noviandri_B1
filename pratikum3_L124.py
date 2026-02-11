@@ -4,6 +4,8 @@
 # Kelas : TPL - B1
 # ==================================
 
+# ========== Tugas Pratikum pertemuan 3 (Latihan 1,2,4) ==========
+
 # Membuat Node
 class Node:
     def __init__(self, data):
@@ -66,6 +68,7 @@ class LinkedList:
         prev.next = temp.next
         temp = None
 
+# Contoh penggunaan
 ll = LinkedList()
 ll.insert_at_end(3)
 ll.insert_at_end(5)
