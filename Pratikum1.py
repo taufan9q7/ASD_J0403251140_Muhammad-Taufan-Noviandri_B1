@@ -1,3 +1,9 @@
+# ==========================================================
+# Nama : Muhammad Taufan Noviandri
+# NIM : J0403251140
+# Kelas : TPL - B1
+# ==========================================================
+
 #=================================================
 # Pratikum 1 : Konsep ADT dan File Handling
 # Latihan Dasar 1A : Membaca seluruh isi file

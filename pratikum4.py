@@ -50,9 +50,9 @@ class LinkedList:
        # 3) head pindah ke node baru
        self.head = nodeBaru 
 
-    def hapus_awal(self):
-        data_terhapus = self.head.data
-        #
+    def hapus_awal(self): #pop dalam stack
+        data_terhapus = self.head.data #peek dalam stack
+        # menggeser head ke node berikutnya
         self.head = self.head.next 
         print('Node yang dihapus adalah :', data_terhapus)
 

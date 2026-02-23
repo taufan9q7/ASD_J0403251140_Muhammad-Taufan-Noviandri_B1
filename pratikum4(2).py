@@ -1,7 +1,7 @@
 # ==========================================================
 # Nama : Muhammad Taufan Noviandri
 # NIM : J0403251140
-# Kelas : TPL - B1
+# Kelas : TPL B1
 # ==========================================================
 
 #===================================================
@@ -72,7 +72,6 @@ q = QueueLL()
 q.enqueue('A')
 q.enqueue('B')
 q.enqueue('C')
-
 q.tampilkan()
 q.dequeue()
 q.tampilkan()
