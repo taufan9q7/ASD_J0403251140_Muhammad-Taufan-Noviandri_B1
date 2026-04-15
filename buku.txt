@@ -1,0 +1,5 @@
+B001,Belajar Python,85000
+B002,Struktur Data Dasar,120000
+B003,Algoritma Pemrograman,95000
+B004,Matematika Diskrit,75000
+B005,Basis Data,110000
